@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>datacamp-light demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../datacamp-light.html">
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+  </style>
+</head>
+
+<body>
+  <div class="vertical-section-container">
+    <h3>Basic datacamp-light</h3>
+    <demo-snippet>
+      <template>
+        <datacamp-light title="Simple R Test">
+          <datacamp-light-pre-exercise-code>
+            # This will get executed each time the exercise gets initialized
+            b = 6
+          </datacamp-light-pre-exercise-code>
+          <datacamp-light-sample-code>
+            # Create a variable a, equal to 5
+        
+            # Print out a
+          </datacamp-light-sample-code>
+          <datacamp-light-solution>
+            # Create a variable a, equal to 5
+            a <- 5
+        
+            # Print out a
+            print(a)
+          </datacamp-light-solution>
+          <datacamp-light-sct>
+            test_object("a")
+            test_function("print")
+            success_msg("Great job!")
+          </datacamp-light-sct>
+          <datacamp-light-hint>
+            Use the assignment operator (
+            <code><-</code>) to create the variable
+            <code>a</code>.
+          </datacamp-light-hint>
+        </datacamp-light>
+      </template>
+    </demo-snippet>
+  </div>
+</body>
+
+</html>

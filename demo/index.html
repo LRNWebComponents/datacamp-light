@@ -93,6 +93,27 @@
         </datacamp-light>
       </template>
     </demo-snippet>
+
+    <h3>Randomized question.</h3>
+    <demo-snippet>
+      <template is="dom-bind">
+        <datacamp-light title="Find the Mean">
+          <datacamp-light-random-value value="{{x}}" type="number_set" max="100" length="5"></datacamp-light-random-value>
+          <datacamp-light-pre-exercise-code>
+            # This will get executed each time the exercise gets initialized
+            set = c([[x]])
+            answer = mean(set)
+          </datacamp-light-pre-exercise-code>
+          <datacamp-light-sample-code>
+            # What is the mean of [[x]]?
+          </datacamp-light-sample-code>
+          <datacamp-light-sct>
+            test_output_contains(answer)
+            success_msg("Great job!")
+          </datacamp-light-sct>
+        </datacamp-light>
+      </template>
+    </demo-snippet>
   </div>
 </body>
 

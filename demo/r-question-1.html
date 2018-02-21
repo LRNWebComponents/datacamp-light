@@ -8,20 +8,28 @@
         display: block;
       }
     </style>
-    <datacamp-light title="Random R Set">
-      <datacamp-light-pre-exercise-code># This will get executed each time the exercise gets initialized b = 6</datacamp-light-pre-exercise-code>
-      <datacamp-light-sample-code># Create a variable a, equal to [[x]]
-
-      # Print out a</datacamp-light-sample-code>
-      <datacamp-light-solution># Create a variable a, equal to [[x]]
-      a <- [[x]]
-      # Print out a
-      print(a)</datacamp-light-solution>
-      <datacamp-light-sct>test_object("a")
-      test_function("print")
-      success_msg("Great job!")
-      </datacamp-light-sct>
-      <datacamp-light-hint>Use the assignment operator (<code><-</code>) to create the variable <code>a</code>.</datacamp-light-hint>
+    <h2>[[title]]</h2>
+    <datacamp-light-random-value value="{{x}}" type="number" max="20"></datacamp-light-random-value>
+    <datacamp-light-random-value value="{{variable1}}" type="letter"></datacamp-light-random-value>
+    <datacamp-light title="Simple R Test">
+      <datacamp-light-pre-exercise-code>
+        # This will get executed each time the exercise gets initialized b = [[x]]
+      </datacamp-light-pre-exercise-code>
+      <datacamp-light-sample-code>
+        # Create a variable [[variable]], equal to [[x]] # Print out [[variable]]
+      </datacamp-light-sample-code>
+      <datacamp-light-solution>
+        # Create a variable [[variable]], equal to [[x]] [[variable]]
+        <- [[x]] # Print out [[variable]] print([[variable]])
+          </datacamp-light-solution>
+          <datacamp-light-sct>
+            test_object("[[variable]]") test_function("print") success_msg("Great job!")
+          </datacamp-light-sct>
+          <datacamp-light-hint>
+            Use the assignment operator (
+            <code><-</code>) to create the variable
+            <code>[[variable]]</code>.
+          </datacamp-light-hint>
     </datacamp-light>
 
   </template>

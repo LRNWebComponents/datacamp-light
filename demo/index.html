@@ -15,17 +15,55 @@
   <link rel="import" href="r-question-1.html">
 
   <style is="custom-style" include="demo-pages-shared-styles">
+    .vertical-section-container {
+      max-width: 900px;
+      width: 100%;
+    }
   </style>
 </head>
 
 <body>
-  <div class="vertical-section-container">
-    <h3>Basic datacamp-light</h3>
+  <div class="vertical-section-container centered">
+    <h3>Simple question.</h3>
+    <demo-snippet>
+      <template>
+        <datacamp-light title="Simple R Test">
+            <datacamp-light-pre-exercise-code>
+              # This will get executed each time the exercise gets initialized
+              b = 6
+            </datacamp-light-pre-exercise-code>
+            <datacamp-light-sample-code>
+              # Create a variable a, equal to 5
+          
+              # Print out a
+            </datacamp-light-sample-code>
+            <datacamp-light-solution>
+              # Create a variable a, equal to 5
+              a <- 5
+          
+              # Print out a
+              print(a)
+            </datacamp-light-solution>
+            <datacamp-light-sct>
+              test_object("a")
+              test_function("print")
+              success_msg("Great job!")
+            </datacamp-light-sct>
+            <datacamp-light-hint>
+              Use the assignment operator (
+              <code><-</code>) to create the variable
+              <code>a</code>.
+            </datacamp-light-hint>
+          </datacamp-light>
+      </template>
+    </demo-snippet>
+
+    <h3>Randomized question.</h3>
     <demo-snippet>
       <template is="dom-bind">
         <datacamp-light-random-value value="{{x}}" type="number" max="20"></datacamp-light-random-value>
         <datacamp-light-random-value value="{{variable1}}" type="letter"></datacamp-light-random-value>
-        <datacamp-light title="Simple R Test">
+        <datacamp-light title="Random R Test">
           <datacamp-light-pre-exercise-code>
             # This will get executed each time the exercise gets initialized
             b = [[x]]

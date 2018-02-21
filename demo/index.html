@@ -22,42 +22,37 @@
   <div class="vertical-section-container">
     <h3>Basic datacamp-light</h3>
     <demo-snippet>
-      <template>
+      <template is="dom-bind">
+        <datacamp-light-random-value value="{{x}}" type="number" max="20"></datacamp-light-random-value>
+        <datacamp-light-random-value value="{{variable1}}" type="letter"></datacamp-light-random-value>
         <datacamp-light title="Simple R Test">
           <datacamp-light-pre-exercise-code>
             # This will get executed each time the exercise gets initialized
-            b = 6
+            b = [[x]]
           </datacamp-light-pre-exercise-code>
           <datacamp-light-sample-code>
-            # Create a variable a, equal to 5
+            # Create a variable [[variable]], equal to [[x]]
         
-            # Print out a
+            # Print out [[variable]]
           </datacamp-light-sample-code>
           <datacamp-light-solution>
-            # Create a variable a, equal to 5
-            a <- 5
+            # Create a variable [[variable]], equal to [[x]]
+            [[variable]] <- [[x]]
         
-            # Print out a
-            print(a)
+            # Print out [[variable]]
+            print([[variable]])
           </datacamp-light-solution>
           <datacamp-light-sct>
-            test_object("a")
+            test_object("[[variable]]")
             test_function("print")
             success_msg("Great job!")
           </datacamp-light-sct>
           <datacamp-light-hint>
             Use the assignment operator (
             <code><-</code>) to create the variable
-            <code>a</code>.
+            <code>[[variable]]</code>.
           </datacamp-light-hint>
         </datacamp-light>
-      </template>
-    </demo-snippet>
-
-    <h3>Random Question Set</h3>
-    <demo-snippet>
-      <template is="dom-bind">
-        <r-question-1></r-question-1>
       </template>
     </demo-snippet>
   </div>

@@ -1,0 +1,41 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../datacamp-light.html">
+
+<dom-module id="r-question-1">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <datacamp-light title="Random R Set">
+      <datacamp-light-pre-exercise-code># This will get executed each time the exercise gets initialized b = 6</datacamp-light-pre-exercise-code>
+      <datacamp-light-sample-code># Create a variable a, equal to [[x]]
+
+      # Print out a</datacamp-light-sample-code>
+      <datacamp-light-solution># Create a variable a, equal to [[x]]
+      a <- [[x]]
+      # Print out a
+      print(a)</datacamp-light-solution>
+      <datacamp-light-sct>test_object("a")
+      test_function("print")
+      success_msg("Great job!")
+      </datacamp-light-sct>
+      <datacamp-light-hint>Use the assignment operator (<code><-</code>) to create the variable <code>a</code>.</datacamp-light-hint>
+    </datacamp-light>
+
+  </template>
+  <script>
+    Polymer({
+      is: 'r-question-1',
+      properties: {
+        x: {
+          type: String,
+          value: function () {
+            return Math.floor(Math.random() * 100);
+          }
+        }
+      }
+    });
+  </script>
+</dom-module>

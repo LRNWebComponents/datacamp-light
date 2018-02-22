@@ -1,0 +1,61 @@
+
+<link rel="import" href="../../paper-input/paper-input.html">
+
+<dom-module id="stat-mean-quiz-73282">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <paper-input label="Unit range" value={{max}}></paper-input>
+    <paper-input label="Data set amount" value={{length}}></paper-input>
+    <template id="container" is="dom-repeat" items="[[_iteratorHack]]">
+      <datacamp-light-random-value value="{{x}}" type="number_set" max="[[max]]" length="[[length]]"></datacamp-light-random-value>
+      <datacamp-light title="Find the Mean">
+        <datacamp-light-pre-exercise-code>
+          # This will get executed each time the exercise gets initialized
+          set = c([[x]])
+          answer = mean(set)
+        </datacamp-light-pre-exercise-code>
+        <datacamp-light-sample-code>
+          # What is the mean of [[x]]?
+        </datacamp-light-sample-code>
+        <datacamp-light-sct>
+          test_output_contains(answer,1,'[[incorrectMsg]]')
+          success_msg("[[successMsg]]")
+        </datacamp-light-sct>
+      </datacamp-light>
+    </template>
+    
+  </template>
+  <script>
+    Polymer({
+      is: 'stat-mean-quiz-73282',
+      properties: {
+        max: {
+          type: String,
+          value: '5'
+        },
+        length: {
+          type: String,
+          value: '3'
+        },
+        _iteratorHack: {
+          type: Array,
+          value: [1]
+        }
+      },
+      observers: [
+        '_propertiesChanged(max, length)'
+      ],
+      _propertiesChanged: function (max, length) {
+        const container = this.$.container;
+        container.iterator_.updateIteratedValue();
+        console.log(container);
+      }
+
+    });
+  </script>
+</dom-module>

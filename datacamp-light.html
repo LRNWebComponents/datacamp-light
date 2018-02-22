@@ -61,6 +61,7 @@ Convert any blog or website to an interactive learning platform for data science
         }
       },
       ready: function () {
+        const root = this;
         // document.body.appendChild(mathjaxConfig);
         // load the cdn
         var datacampLightCDN = document.createElement('script');
@@ -68,15 +69,14 @@ Convert any blog or website to an interactive learning platform for data science
         document.body.appendChild(datacampLightCDN);
 
         // if the HTML Changes, re-init the datacamp
-        this._observer =
-          Polymer.dom(this.$.content).observeNodes((info) => {
-            this._content = info.addedNodes.map(node => node.textContent).toString();
-            setTimeout(function () {
-              window.initAddedDCLightExercises()
-            }, 100);
-          });
-      }
-
+        // this._observer =
+        //   Polymer.dom(this.$.content).observeNodes((info) => {
+        //     this._content = info.addedNodes.map(node => node.textContent).toString();
+        //     setTimeout(function () {
+        //       root.reload();
+        //     }, 100);
+        //   });
+      },
     });
   </script>
 </dom-module>

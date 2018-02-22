@@ -12,7 +12,7 @@
   <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
   <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
   <link rel="import" href="../datacamp-light.html">
-  <link rel="import" href="r-question-1.html">
+  <link rel="import" href="stat-mean-quiz-73282.html">
 
   <style is="custom-style" include="demo-pages-shared-styles">
     .vertical-section-container {
@@ -94,7 +94,48 @@
       </template>
     </demo-snippet>
 
-    <h3>Randomized question.</h3>
+    <h3>Word problem statistics question.</h3>
+    <demo-snippet>
+      <template is="dom-bind">
+        <datacamp-light title="Find the Mean">
+          <datacamp-light-pre-exercise-code>
+            # This will get executed each time the exercise gets initialized
+            set = c(5,8,2,1)
+            answer = mean(set)
+          </datacamp-light-pre-exercise-code>
+          <datacamp-light-sample-code>
+            # What is the mean of 5,8,2,1?
+          </datacamp-light-sample-code>
+          <datacamp-light-sct>
+            test_output_contains(answer,1,'Incorrect')
+            success_msg("Great job!")
+          </datacamp-light-sct>
+        </datacamp-light>
+      </template>
+    </demo-snippet>
+
+    <h3>Randomized Word problem statistics question.</h3>
+    <demo-snippet>
+      <template is="dom-bind">
+        <datacamp-light title="Find the Mean">
+          <datacamp-light-random-value value="{{x}}" type="number_set" max="10" length="3"></datacamp-light-random-value>
+          <datacamp-light-pre-exercise-code>
+            # This will get executed each time the exercise gets initialized
+            set = c([[x]])
+            answer = mean(set)
+          </datacamp-light-pre-exercise-code>
+          <datacamp-light-sample-code>
+            # What is the mean of [[x]]?
+          </datacamp-light-sample-code>
+          <datacamp-light-sct>
+            test_output_contains(answer,1,'Incorrect')
+            <!-- success_msg("Great job!") -->
+          </datacamp-light-sct>
+        </datacamp-light>
+      </template>
+    </demo-snippet>
+
+    <h3>Difficult Randomized Word problem statistics question.</h3>
     <demo-snippet>
       <template is="dom-bind">
         <datacamp-light title="Find the Mean">
@@ -108,12 +149,13 @@
             # What is the mean of [[x]]?
           </datacamp-light-sample-code>
           <datacamp-light-sct>
-            test_output_contains(answer)
-            success_msg("Great job!")
+            test_output_contains(answer,1,'Incorrect')
+            <!-- success_msg("Great job!") -->
           </datacamp-light-sct>
         </datacamp-light>
       </template>
     </demo-snippet>
+
   </div>
 </body>
 

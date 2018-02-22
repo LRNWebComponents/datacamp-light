@@ -1,0 +1,82 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="datacamp-light-pre-exercise-code.html">
+<link rel="import" href="datacamp-light-sample-code.html">
+<link rel="import" href="datacamp-light-solution.html">
+<link rel="import" href="datacamp-light-sct.html">
+<link rel="import" href="datacamp-light-hint.html">
+<link rel="import" href="datacamp-light-random-value.html">
+
+<!--
+`datacamp-light`
+Convert any blog or website to an interactive learning platform for data science
+
+@demo demo/index.html
+-->
+
+<dom-module id="datacamp-light">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <div class="exercise">
+      <div class="title">
+        <h2>[[title]]</h2>
+      </div>
+
+      <div data-datacamp-exercise data-lang="[[language]]" data-height="[[height]]">
+        <slot></slot>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'datacamp-light',
+
+      properties: {
+        title: {
+          type: String,
+          value: '',
+        },
+        /**
+         * What language would you like to compute the code with.
+         * Options
+         * - r
+         * - python
+         */
+        language: {
+          type: String,
+          value: 'r'
+        },
+        /**
+         * Optionaly define a specific height for the widget.
+         */
+        height: {
+          type: String,
+          default: 'auto'
+        }
+      },
+      ready: function () {
+        const root = this;
+        // document.body.appendChild(mathjaxConfig);
+        // load the cdn
+        var datacampLightCDN = document.createElement('script');
+        datacampLightCDN.src = 'https://cdn.datacamp.com/datacamp-light-latest.min.js';
+        document.body.appendChild(datacampLightCDN);
+
+        // if the HTML Changes, re-init the datacamp
+        // this._observer =
+        //   Polymer.dom(this.$.content).observeNodes((info) => {
+        //     this._content = info.addedNodes.map(node => node.textContent).toString();
+        //     setTimeout(function () {
+        //       root.reload();
+        //     }, 100);
+        //   });
+      },
+    });
+  </script>
+</dom-module>

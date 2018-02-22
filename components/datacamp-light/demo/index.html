@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>datacamp-light demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../datacamp-light.html">
+  <link rel="import" href="stat-mean-quiz-73282.html">
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+    .vertical-section-container {
+      max-width: 900px;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="vertical-section-container centered">
+    <h3>Simple question.</h3>
+    <demo-snippet>
+      <template>
+        <datacamp-light title="Simple R Test">
+          <datacamp-light-pre-exercise-code>
+            # This will get executed each time the exercise gets initialized
+            b = 6
+          </datacamp-light-pre-exercise-code>
+          <datacamp-light-sample-code>
+            # Create a variable a, equal to 5
+
+            # Print out a
+          </datacamp-light-sample-code>
+          <datacamp-light-solution>
+            # Create a variable a, equal to 5
+            a <- 5
+ 
+            # Print out a
+            print(a)
+          </datacamp-light-solution>
+          <datacamp-light-sct>
+            test_object("a")
+            test_function("print")
+            success_msg("Great job!")
+          </datacamp-light-sct>
+          <datacamp-light-hint>
+            Use the assignment operator (
+            <code><-</code>) to create the variable
+            <code>a</code>.
+          </datacamp-light-hint>
+        </datacamp-light>
+      </template>
+    </demo-snippet>
+
+    <h3>Randomized question.</h3>
+    <demo-snippet>
+      <template is="dom-bind">
+        <datacamp-light-random-value value="{{x}}" type="number" max="20"></datacamp-light-random-value>
+        <datacamp-light-random-value value="{{variable}}" type="letter"></datacamp-light-random-value>
+        <datacamp-light title="Random R Test">
+          <datacamp-light-pre-exercise-code>
+            # This will get executed each time the exercise gets initialized
+            b = [[x]]
+          </datacamp-light-pre-exercise-code>
+          <datacamp-light-sample-code>
+            # Create a variable [[variable]], equal to [[x]]
+ 
+            # Print out [[variable]]
+          </datacamp-light-sample-code>
+          <datacamp-light-solution>
+            # Create a variable [[variable]], equal to [[x]]
+            [[variable]] <- [[x]]
+ 
+            # Print out [[variable]]
+            print([[variable]])
+          </datacamp-light-solution>
+          <datacamp-light-sct>
+            test_object("[[variable]]")
+            test_function("print")
+            success_msg("Great job!")
+          </datacamp-light-sct>
+          <datacamp-light-hint>
+            Use the assignment operator (
+            <code><-</code>) to create the variable
+            <code>[[variable]]</code>.
+          </datacamp-light-hint>
+        </datacamp-light>
+      </template>
+    </demo-snippet>
+
+    <h3>Word problem statistics question.</h3>
+    <demo-snippet>
+      <template is="dom-bind">
+        <datacamp-light title="Find the Mean">
+          <datacamp-light-pre-exercise-code>
+            # This will get executed each time the exercise gets initialized
+            set = c(5,8,2,1)
+            answer = mean(set)
+          </datacamp-light-pre-exercise-code>
+          <datacamp-light-sample-code>
+            # What is the mean of 5,8,2,1?
+          </datacamp-light-sample-code>
+          <datacamp-light-sct>
+            test_output_contains(answer,1,'Incorrect')
+            success_msg("Great job!")
+          </datacamp-light-sct>
+        </datacamp-light>
+      </template>
+    </demo-snippet>
+
+    <h3>Randomized Word problem statistics question.</h3>
+    <demo-snippet>
+      <template is="dom-bind">
+        <datacamp-light title="Find the Mean">
+          <datacamp-light-random-value value="{{x}}" type="number_set" max="10" length="3"></datacamp-light-random-value>
+          <datacamp-light-pre-exercise-code>
+            # This will get executed each time the exercise gets initialized
+            set = c([[x]])
+            answer = mean(set)
+          </datacamp-light-pre-exercise-code>
+          <datacamp-light-sample-code>
+            # What is the mean of [[x]]?
+          </datacamp-light-sample-code>
+          <datacamp-light-sct>
+            test_output_contains(answer,1,'Incorrect')
+            <!-- success_msg("Great job!") -->
+          </datacamp-light-sct>
+        </datacamp-light>
+      </template>
+    </demo-snippet>
+
+    <h3>Difficult Randomized Word problem statistics question.</h3>
+    <demo-snippet>
+      <template is="dom-bind">
+        <datacamp-light title="Find the Mean">
+          <datacamp-light-random-value value="{{x}}" type="number_set" max="100" length="5"></datacamp-light-random-value>
+          <datacamp-light-pre-exercise-code>
+            # This will get executed each time the exercise gets initialized
+            set = c([[x]])
+            answer = mean(set)
+          </datacamp-light-pre-exercise-code>
+          <datacamp-light-sample-code>
+            # What is the mean of [[x]]?
+          </datacamp-light-sample-code>
+          <datacamp-light-sct>
+            test_output_contains(answer,1,'Incorrect')
+            <!-- success_msg("Great job!") -->
+          </datacamp-light-sct>
+        </datacamp-light>
+      </template>
+    </demo-snippet>
+
+  </div>
+</body>
+
+</html>
